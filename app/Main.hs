@@ -46,6 +46,23 @@ word = "wow"
 isPalindrome :: Eq a => [a] -> Bool
 isPalindrome xs = xs == myReverse xs
 
+cword = "aabccdd"
+
+-- Problem 8
+compress :: Eq a => [a] -> [a]
+compress [] = []
+compress [x] = [x]
+compress (x:xs) = x : compress (dropWhile (== x) xs)
+
+-- Problem 9
+pack :: Eq a => [a] -> [[a]]
+pack [] = []
+pack (x:xs) = let (first, rest) = span (== x) xs
+              in (x:first) : pack rest
+
+-- Problem 10
+encode :: Eq a => [a] -> [(Int, a)]
+encode xs = map (\ys -> (length ys, head ys)) (pack xs)
 
 
 
