@@ -5,6 +5,7 @@ main = putStrLn "Hello, Haskell!"
 
 
 xs = [1,2,3,4]
+cs = "ciao!"
 
 -- Problem 1
 myLast :: [a] -> a
@@ -34,9 +35,16 @@ myLength [x] = 1
 myLength (_:xs) = 1 +  myLength xs
 
 -- Problem 5
--- myReverse :: [a] -> [] -> [a]
+myReverse :: [a] -> [a]
+myReverse [] = []
+myReverse (x:xs) = myReverse xs ++ [x]
 
 
+word = "wow"
+
+-- Problem 6
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome xs = xs == myReverse xs
 
 
 
